@@ -13,7 +13,7 @@ class ProductAdmin(admin.ModelAdmin):
     autocomplete_fields = ['collection']
     list_display = ['title','unit_price','collection','inventory','inventory_status']
     list_editable = ['unit_price','inventory']
-    list_per_page = 10
+    list_per_page = 500
     search_fields = ['title']
     list_filter = ['collection','last_update']
 
