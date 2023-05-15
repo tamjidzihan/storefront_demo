@@ -7,7 +7,7 @@ class CollectionSerializer(serializers.ModelSerializer):
         model = Collection
         fields = ['id','title','products_count']
 
-    products_count = serializers.IntegerField()
+    products_count = serializers.IntegerField(read_only = True)
 
     # id = serializers.IntegerField()
     # title = serializers.CharField(max_length = 255)
@@ -22,7 +22,7 @@ class ProductSerializer(serializers.ModelSerializer):
     def calculate_tax(self, product:Product):
         return product.unit_price * Decimal(1.1)
 
-    # to view the fields invidualy(old mathod)
+    # to view the fields invidualy(old mathod)-->
     # id = serializers.IntegerField()
     # title = serializers.CharField(max_length=255)
     # price = serializers.DecimalField(max_digits=6,decimal_places=2,source = 'unit_price')
@@ -36,7 +36,7 @@ class ProductSerializer(serializers.ModelSerializer):
     #         return data
 
 
-    # to show Collection as a hyperlink
+    # to show Collection as a hyperlink-->
     # collection = serializers.HyperlinkedRelatedField(
     #     queryset = Collection.objects.all(),
     #     view_name= 'collection-detail'
@@ -45,6 +45,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     # To view the field as a nested object -->
     # collection = CollectionSerializer()
+
     # if you want to show the Number representation of this field--->
     # collection = serializers.PrimaryKeyRelatedField(
     #     queryset = Collection.objects.all()
